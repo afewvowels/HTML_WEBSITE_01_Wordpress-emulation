@@ -1,0 +1,80 @@
+$font-body: 'Work Sans', sans-serif;
+$font-display: 'Comfortaa', cursive;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template:
+    'header' 80px
+    'content' auto
+    'footer' 60px
+    / auto;
+}
+
+header {
+  grid-area: header;
+  background-color: rgb(127, 73, 173);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  #logo-and-branding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    #logo-wrapper {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background-color:rgb(70, 187, 112);
+      color: rgb(252,252,252);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8em;
+    }
+    #title {
+      font-family: $font-display;
+    }
+  }
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      li {
+        position: relative;
+        a {
+          padding: 15px;
+        }
+        a::after {
+          content: attr(data-content);
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: blue;
+        }
+        a::before {
+          content: attr(data-content);
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+main {
+  grid-area: content;
+}
+
+footer {
+  grid-area: footer;
+}
